@@ -1,4 +1,6 @@
 import turtle as t
+ALIGNMENT = 'center'
+FONT = ('Courier', 16, 'bold')
 
 
 class Scoreboard(t.Turtle):
@@ -12,9 +14,10 @@ class Scoreboard(t.Turtle):
 
     def show_scoreboard(self):
         self.goto(0, 275)
-        self.write(arg=f'Score: {self.score}', move=True, align='center', font=('Arial', 16, 'bold'))
+        self.write(arg=f'Score: {self.score}', move=True, align=ALIGNMENT, font=FONT)
 
     def add_one(self):
         self.score += 1
+        self.clear()
         self.show_scoreboard()
 

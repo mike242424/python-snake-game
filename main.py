@@ -34,9 +34,9 @@ while is_playing:
     snake.move()
 
     if snake.head.distance(food) < 15:
-        scoreboard.clear()
         scoreboard.add_one()
         food.change_position()
+        snake.add_segment()
 
 
 screen.exitonclick()
