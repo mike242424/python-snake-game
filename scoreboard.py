@@ -21,3 +21,6 @@ class Scoreboard(t.Turtle):
         self.clear()
         self.show_scoreboard()
 
+    def game_over(self):
+        self.goto(0, 0)
+        self.write(arg=f'GAME OVER', move=True, align=ALIGNMENT, font=FONT)

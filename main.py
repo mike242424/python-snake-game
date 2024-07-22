@@ -4,9 +4,6 @@ from scoreboard import Scoreboard
 from food import Food
 import time
 
-ALIGN = 'center'
-FONT = ('Courier', 24, 'bold')
-
 screen = t.Screen()
 screen.bgcolor('black')
 screen.setup(width=600, height=600)
@@ -32,16 +29,6 @@ screen.onkey(key='a', fun=snake.left)
 screen.onkey(key='d', fun=snake.right)
 
 
-def game_over():
-    global is_playing
-    is_playing = False
-    game_over_turtle = t.Turtle()
-    game_over_turtle.penup()
-    game_over_turtle.color('white')
-    game_over_turtle.goto(0, 0)
-    game_over_turtle.write(arg='GAME OVER', align=ALIGN, font=FONT)
-
-
 while is_playing:
     screen.update()
     time.sleep(0.1)
@@ -52,7 +39,6 @@ while is_playing:
         food.change_position()
 
     if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
-        game_over()
-
+        scoreboard.game_over()
 
 screen.exitonclick()
